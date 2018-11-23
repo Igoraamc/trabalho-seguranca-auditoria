@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	session_destroy();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -115,18 +119,17 @@
 			let data = JSON.parse(response);
 
 			if(data.code == 200) {
-				setTimeout(function() {
-					window.location.href = "safebox.html?user=" + $('#cemail').val();
-				}, 5000);
+				$('#lemail').val($('#cemail').val());
+				$('#lpassword').val($('#cpassword').val());
+
+				$("#login-btn").click();
 			}
 		}
 		let callbackUserLogin = function(response) {
 			let data = JSON.parse(response);
 
 			if(data.code == 200) {
-				setTimeout(function() {
-					window.location.href = "safebox.html?user=" + $('#lemail').val();
-				}, 5000);
+				window.location.href = "safebox.php";
 			}
 			console.log(data);
 		}
@@ -145,6 +148,7 @@
 			let registerEmail = $('#cemail').val();
 			let registerPassword = $('#cpassword').val();
 			let registerPasswordConfirmation = $('#cconfirmpassword').val();
+			register.emailVerification($('#cemail').val(), callbackEmailVerification);
 
 			if(registerUsername == "") {
 				$('#name').addClass('invalid');

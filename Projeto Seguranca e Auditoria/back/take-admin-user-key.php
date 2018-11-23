@@ -38,5 +38,5 @@
 		$admin_key = $row["USER_KEY"];
 	}
 
-	echo $admin_key;
+	//echo $admin_key;
 ?>

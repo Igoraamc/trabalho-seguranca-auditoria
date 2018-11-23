@@ -41,3 +41,36 @@ let register = {
 		});
 	}
 }
+
+let safebox = {
+	getAllSafeboxUserKeys : function(callback) {
+		$.ajax({
+			"async" : true,
+			"method" : "GET",
+			"url" : "../back/get-all-safebox-keys.php"
+		}).done(function(response) {
+			callback(response);
+		});
+	},
+	addSafeboxKey : function(object, callback) {
+		$.ajax({
+			"async" : true,
+			"method" : "GET",
+			"url" : "../back/set-safebox-key.php?key_name="+object.key_name+"&key_password="+object.key_password
+		}).done(function(response) {
+			callback(response);
+		});
+	},
+	removeSafeboxKey : function(name, callback) {
+		$.ajax({
+			"async" : true,
+			"method" : "GET",
+			"url" : "../back/remove-safebox-key.php?key_name="+name
+		}).done(function(response) {
+			callback(response);
+		});
+	}
+}
+
+
+

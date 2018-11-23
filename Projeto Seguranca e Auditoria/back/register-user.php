@@ -21,8 +21,6 @@
 						"data" => (object)array(
 									"message" => "User registered."
 								),
-						"user_key" => $enc,
-						"password_key" => $password_key,
 						"code" => 200
 					);
 
