@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: 23-Nov-2018 às 06:53
--- Versão do servidor: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Host: 127.0.0.1
+-- Generation Time: Nov 23, 2018 at 01:22 PM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,50 +19,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `DB_COFRE_DE_SENHAS`
+-- Database: `db_cofre_de_senhas`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `TB_ADMIN`
+-- Table structure for table `tb_users`
 --
 
-CREATE TABLE `TB_ADMIN` (
-  `NAME` varchar(80) NOT NULL,
-  `EMAIL` varchar(60) NOT NULL,
-  `PASSWORD` varchar(30) NOT NULL,
-  `USER_KEY` varchar(254) NOT NULL,
-  `DATA_EXP` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `TB_ADMIN`
---
-
-INSERT INTO `TB_ADMIN` (`NAME`, `EMAIL`, `PASSWORD`, `USER_KEY`, `DATA_EXP`) VALUES
-('ADMIN', 'A_D_M_I_N@admin.admin', '123456789@admin@987654321', 'pclWEKIONm', '24/11/2018');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `TB_USER`
---
-
-CREATE TABLE `TB_USER` (
-  `ID` int(11) NOT NULL,
-  `NAME` varchar(60) NOT NULL,
-  `EMAIL` varchar(45) NOT NULL,
-  `PASSWORD` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `TB_USERS`
---
-
-CREATE TABLE `TB_USERS` (
+CREATE TABLE `tb_users` (
   `ID` int(11) NOT NULL,
   `NAME` varchar(80) NOT NULL,
   `EMAIL` varchar(60) NOT NULL,
@@ -71,10 +37,10 @@ CREATE TABLE `TB_USERS` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `TB_USERS`
+-- Dumping data for table `tb_users`
 --
 
-INSERT INTO `TB_USERS` (`ID`, `NAME`, `EMAIL`, `PASSWORD`, `USER_KEY`) VALUES
+INSERT INTO `tb_users` (`ID`, `NAME`, `EMAIL`, `PASSWORD`, `USER_KEY`) VALUES
 (18, 'aaa', 'aaa@aaa.aaa', '7fAaIQRZadegP5DDWhFTag==', 'GjYpBl'),
 (19, 'bbb', 'bbb@bbb.bbb', '4x5OqyHrY9x9mHPnxh3FXw==', 'TyoEoy'),
 (20, 'bbb', 'bbb@bbb.bbb', '1UkP0yMTA0ImFH0SnLLqbA==', 'XmCAToQ'),
@@ -87,20 +53,20 @@ INSERT INTO `TB_USERS` (`ID`, `NAME`, `EMAIL`, `PASSWORD`, `USER_KEY`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `TB_USERS_KEYS`
+-- Table structure for table `tb_users_keys`
 --
 
-CREATE TABLE `TB_USERS_KEYS` (
+CREATE TABLE `tb_users_keys` (
   `ID` int(11) NOT NULL,
   `NAME` varchar(254) NOT NULL,
   `PASSWORD` varchar(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `TB_USERS_KEYS`
+-- Dumping data for table `tb_users_keys`
 --
 
-INSERT INTO `TB_USERS_KEYS` (`ID`, `NAME`, `PASSWORD`) VALUES
+INSERT INTO `tb_users_keys` (`ID`, `NAME`, `PASSWORD`) VALUES
 (18, 'OI', 'NUfjcsMIHAuQxoy58GoDvA=='),
 (18, 'testando', 'QMB0PQMjueIbvkFiranttA=='),
 (18, 'teste novo', '89sXm0lWeZtoF4NGPzRDkQ=='),
@@ -111,15 +77,9 @@ INSERT INTO `TB_USERS_KEYS` (`ID`, `NAME`, `PASSWORD`) VALUES
 --
 
 --
--- Indexes for table `TB_USER`
+-- Indexes for table `tb_users`
 --
-ALTER TABLE `TB_USER`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `TB_USERS`
---
-ALTER TABLE `TB_USERS`
+ALTER TABLE `tb_users`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -127,15 +87,9 @@ ALTER TABLE `TB_USERS`
 --
 
 --
--- AUTO_INCREMENT for table `TB_USER`
+-- AUTO_INCREMENT for table `tb_users`
 --
-ALTER TABLE `TB_USER`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `TB_USERS`
---
-ALTER TABLE `TB_USERS`
+ALTER TABLE `tb_users`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
